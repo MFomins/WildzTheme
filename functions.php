@@ -126,7 +126,6 @@ if ( ! function_exists( 'games_tags' ) ) {
     }
 
 
-
 //Shortcodes
 
 function games_shortcode($atts)

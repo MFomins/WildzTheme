@@ -1,17 +1,10 @@
 
-<div class="row">
+<div class="games-content">
     <div class="games-info">
         <div class="category-title">
-        <?php 
-        $terms = wp_get_post_terms($post->ID, 'category');
-if ($terms) {
-    $out = array();
-    foreach ($terms as $term) {
-        $out[] = '<a class="' .$term->slug .'" href="' .get_term_link( $term->slug, 'category') .'">' .$term->name .'</a>';
-    }
-    echo join( ', ', $out );
-} ?>
-               
+
+        <?php echo $atts['category']; ?>
+
         </div>
 
         <div class="games-content">
