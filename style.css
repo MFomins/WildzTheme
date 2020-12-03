@@ -1,0 +1,225 @@
+/*
+Theme Name: Wildz
+Theme URI: https://yoursite.lv
+Author: Marks Fomins
+Author URI: https://yoursite.lv
+Description: Custom casino theme
+Version: 1.0.0
+Requires at least: 4.5.0
+Tested up to: 5.5
+Requires PHP: 5.4.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: casinon
+Tags: two-columns, three-columns, one-column, right-sidebar, footer-widgets, full-width-template, custom-header, custom-background, custom-menu
+*/
+
+body{
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/**-----------------------------------------------------------**/
+/** Header **/
+#header{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 15%;
+    background-color: #750491;
+    height: 100vh;
+    z-index: 1000;
+    display: inline-block;
+    color: white;
+}
+
+.site-header-inner{
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 50px;
+    height: 100vh;
+}
+
+.logoimage{
+    width: 100%;
+}
+
+p.desc{
+    position: relative;
+    text-align: center;
+    font-size: 25px;
+}
+
+/** Main Menu **/
+.site-navigation{
+    border-top: 1px solid white;
+    margin: 25px 0;
+    padding: 25px 0;
+    border-bottom: 1px solid white;
+}
+.site-nav ul{
+    list-style-type: none;
+}
+.site-nav ul li{
+    padding:  5px 5px 5px 0;
+}
+.site-nav ul li a{
+    display: block;
+    font-weight: 700;
+    color:white;
+    text-decoration: none;
+}
+.site-nav ul li a:hover{
+    color: yellow;
+}
+
+.site-nav ul li.current-menu-item a{
+    color:lightblue;
+}
+.site-nav ul li.current-menu-item a:hover{
+    color:lightblue;
+    text-decoration: none;
+
+}
+
+
+
+
+
+
+
+
+
+
+/**-----------------------------------------------------------**/
+/** Body **/
+#content{
+    position: relative;
+    width: 100%;
+    padding-left: 15%;
+    min-height: 90vh;
+
+}
+.content-banner{
+    position: relative;
+    display: block;
+    width: 100%;
+    background-color:#f7f17c;
+    color: #750491;
+    padding: 50px;
+    z-index: 100;
+}
+
+.content-banner p{
+    margin: 10px 0 0 0;
+    font-size: 2rem;
+    line-height: 110%;
+    font-weight: 700;
+
+}
+
+/** Games **/
+.games-info{
+    width: calc(100% - 25px);
+}
+.games-content{
+    display:inline-block;
+    height: inherit;
+    padding: 30px 10px 20px 20px;
+    transition: transform 1s;
+
+}
+
+.games-content:hover{
+        transform: translate(0,-20px);
+}
+
+.category-title{
+    font-size: 2em;
+    color: #2d127d;
+    font-weight: bold;
+}
+
+
+/** Games IFRAME **/
+.gameframe{
+    background-color: lightblue;
+    border: hidden;
+    position: relative;
+    align-content: center;
+    padding:50px 0 0 200px;
+    overflow-x: hidden;
+}
+
+.game-title{
+    padding-left: 200px;
+    padding-bottom: 50px;
+}
+h1.title{
+    font-size: 2em;
+    color:rgb(37, 34, 12);
+}
+
+.games-titles{
+    color: black;
+    position: relative;
+    display: inline-block;
+
+
+}
+
+
+
+
+
+
+
+/**-----------------------------------------------------------**/
+/** Footer **/
+#footer{
+
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    background-color: black;
+    z-index: 100;
+    position: relative;
+    padding-left: 15%;
+    bottom: 0;
+
+}
+.footer-info{
+    position: relative;
+    padding: 50px;
+    margin: 2rem 0;
+}
+
+p.copyright{
+    color: white;
+    text-align: center;
+}
+
+.agelimit ul{
+    display: flex;
+    justify-content: center;
+    padding: 0;
+}
+.agelimit ul li{
+    color:white;
+    border: 6px solid red;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    line-height: 80px;
+    display: inline-block;
+
+    list-style-type: none;
+    font-size: 2.5rem;
+    font-weight: 700;
+
+}
+
+
+
+
