@@ -161,11 +161,9 @@ h1.title{
     color:rgb(37, 34, 12);
 }
 
-.games-titles{
+.game-link{
     color: black;
-    position: relative;
-    display: inline-block;
-
+    text-decoration: none;
 
 }
 

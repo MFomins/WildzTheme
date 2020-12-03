@@ -146,6 +146,9 @@ function games_shortcode($atts)
                 'taxonomy' => 'category',
                 'field' => 'slug',
                 'terms' => $atts['category'],
+                'cat' => $category->term_id,
+                'category_name' => $category,
+
             )
         ),
     );
