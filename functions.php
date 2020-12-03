@@ -158,7 +158,8 @@ function games_shortcode($atts)
 
         while($loop->have_posts()) : $loop->the_post();
 
-            get_template_part('includes/posts','shortcode');     
+        get_template_part('template-parts/posts-shortcode');
+
 
         endwhile;
     }
