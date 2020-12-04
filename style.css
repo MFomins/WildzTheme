@@ -138,10 +138,14 @@ p.desc{
         transform: translate(0,-20px);
 }
 
-.category-title{
+.shortcode-title{
     font-size: 2em;
     color: #2d127d;
     font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 50px;
 }
 
 

@@ -133,6 +133,7 @@ function games_shortcode($atts)
     $atts = shortcode_atts(
         array(
             'category' => '',
+            'title' => '',
         ),
         $atts,
         'all_games'
@@ -140,13 +141,12 @@ function games_shortcode($atts)
 
     $args = array(
         'post_type' => 'games',
+        'posts_per_page' => 4,
         'tax_query' => array(
             array(
                 'taxonomy' => 'category',
                 'field' => 'slug',
                 'terms' => $atts['category'],
-                'cat' => $category->term_id,
-                'category_name' => $category,
 
             )
         ),
@@ -155,6 +155,19 @@ function games_shortcode($atts)
     ob_start();
 
     $loop = new WP_Query($args);
+?>
+
+    <div class = "shortcode-title">
+        <?php if ($atts['title']) : ?>
+            <?php echo $atts['title']; ?>
+
+        <?php endif;?>
+            <button class = "loadmore"> Show All </button>
+        </div>
+        
+
+
+    <?php
 
     if($loop->have_posts()) {    
 
@@ -172,7 +185,7 @@ add_shortcode( 'all_games','games_shortcode' );
 
 
 
-// test shortcodes
+// AJAX view all 
 
 
 
