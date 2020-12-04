@@ -19,12 +19,19 @@ wp_enqueue_style('style');
 wp_enqueue_style('bootstrap');
 wp_enqueue_script('app');
 
+
 }
 add_action('wp_enqueue_scripts','wildz_styles');
 
 function wildz_scripts(){
 //  Javascript
     wp_register_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js','jquery', false, true);
+
+    $script_data_array = array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'security' => wp_create_nonce( 'load_more_posts' ),
+    );
+    wp_localize_script( 'custom-script', 'blog', $script_data_array );
 
 //  Enqueue
 wp_enqueue_script('bootstrap');
@@ -162,7 +169,7 @@ function games_shortcode($atts)
             <?php echo $atts['title']; ?>
 
         <?php endif;?>
-            <button class = "loadmore"> Show All </button>
+            <div class="loadmore"> Show All </div>
         </div>
         
 
@@ -185,7 +192,48 @@ add_shortcode( 'all_games','games_shortcode' );
 
 
 
+
+
+// Admin Aja 
+function blog_scripts() {
+    // Register the script
+    wp_register_script( 'custom-script', get_stylesheet_directory_uri(). '/src/app.js', array('jquery'), false, true );
+ 
+    // Localize the script with new data
+    $script_data_array = array(
+        'ajaxurl' => admin_url( 'admin-ajax.php' ),
+        'security' => wp_create_nonce( 'load_more_posts' ),
+    );
+    wp_localize_script( 'custom-script', 'blog', $script_data_array );
+ 
+    // Enqueued script with localized data.
+    wp_enqueue_script( 'custom-script' );
+}
+add_action( 'wp_enqueue_scripts', 'blog_scripts' );
+
+add_action('wp_ajax_load_posts_by_ajax', 'load_posts_by_ajax_callback');
+add_action('wp_ajax_nopriv_load_posts_by_ajax', 'load_posts_by_ajax_callback');
+
 // AJAX view all 
+function more_post_ajax(){
+    $offset = $_POST["offset"];
+
+
+     $args = array(
+        'post_type' => 'games',
+         'posts_per_page' => -1,
+         'order' => 'ASC',
+     );
+
+
+ 
+   wp_reset_postdata();
+
+     die(); // use die instead of exit 
+  }
+
+add_action('wp_ajax_nopriv_more_post_ajax', 'more_post_ajax'); 
+add_action('wp_ajax_more_post_ajax', 'more_post_ajax');
 
 
 
