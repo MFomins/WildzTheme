@@ -130,6 +130,9 @@ p.desc{
     transition: transform 1s;
 
 }
+.games-list{
+    display: inline-block;
+}
 
 .games-content:hover{
         transform: translate(0,-20px);
@@ -166,6 +169,7 @@ h1.title{
     text-decoration: none;
 
 }
+
 
 
 

@@ -1,11 +1,15 @@
 
-<div class="games-content">
+   <div class="category-title">
+   <?php the_category( ' ' ); ?>  
+
+
+
+</div>
+   <div class="games-list">
+ 
+    
     <div class="games-info">
-        <div class="category-title">
-
-        <?php echo $atts['category']; ?>
-
-        </div>
+      
 
         <div class="games-content">
         <a href="<?php the_permalink(); ?>">
