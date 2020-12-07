@@ -231,7 +231,7 @@ function more_post_ajax(){
          'post_type' => 'games',
          'category' => '',
          'posts_per_page' => 10,
-         'order' => 'DESC',
+         'order' => 'ASC',
          'offset' => 5,
      );
 
@@ -241,7 +241,7 @@ function more_post_ajax(){
  
          while($loop->have_posts()) : $loop->the_post();
  
-         get_template_part('template-parts/posts-shortcode');
+         get_template_part('template-parts/showall-shortcode');
  
  
          endwhile;

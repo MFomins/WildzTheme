@@ -12,8 +12,8 @@
      
             $.post(blog.ajaxurl, data, function(response) {
                 if($.trim(response) != '') {
-                    $('.loadmore').append(response);
-                    posts_per_page=-1;
+                    $('.shortcode-title').append(response);
+                    posts_per_page=10;
                 } else {
                     $('.loadmore').hide();
                 }

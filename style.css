@@ -94,6 +94,7 @@ p.desc{
 
 }
 
+/** Mobile view **/
 @media only screen and (max-width:1000px){
    
     #header{
@@ -110,15 +111,18 @@ p.desc{
         padding: 5px;
     }
     .mobile-menu a{
-        display: flex;
-        justify-content:space-between;
-        font-size: 2em;
+        display: block;
+        font-size: 3em;
         color: White ;
-        font-weight: bold;
     }
     .mobile-menu a:hover{
         text-decoration: none;
-
+    }
+    .site-navigation{
+        margin: 5px;
+        padding: 0;
+        border-top: none;
+        border-bottom: none;
     }
 
 }
@@ -226,8 +230,13 @@ h1.title{
     text-decoration: none;
 
 }
+.loadmore{
+    display: block;
+}
 .loadmore:hover{
     color: lightblue;
+    display: block;
+
 }
 
 
@@ -239,7 +248,19 @@ h1.title{
 
 /**-----------------------------------------------------------**/
 /** Footer **/
-#footer{
+@media only screen and (min-width:1000px){
+    .footer{
+        width: 100%;
+        padding-left: 15%;
+        display: flex;
+        justify-content:center;
+        background-color: black;
+        z-index: 100;
+        position: relative;
+        bottom: 0;
+    }
+}
+.footer{
 
     width: 100%;
     display: flex;
@@ -247,15 +268,15 @@ h1.title{
     background-color: black;
     z-index: 100;
     position: relative;
-    padding-left: 15%;
     bottom: 0;
-
 }
+
 .footer-info{
     position: relative;
     padding: 50px;
     margin: 2rem 0;
 }
+
 
 p.copyright{
     color: white;
@@ -281,6 +302,7 @@ p.copyright{
     font-weight: 700;
 
 }
+
 
 
 
