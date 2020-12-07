@@ -21,17 +21,23 @@
 <header id="header" class="site-header">
 
     <div class="site-header-inner">
-        
+            <div class ="site-header-top">
             <div class="site-logo">
-            <a href = "<?php echo esc_url(home_url()); ?>">
-                <img src="<?php echo get_template_directory_uri() ?> /img/wildz_net.png" class="logoimage">
-            </a>
+         <?php 
+            $custom_logo_id = get_theme_mod( 'custom_logo' );
+            $image = wp_get_attachment_image_src( $custom_logo_id , 'thumbnail' );
+         ?>
+            <img class="logoimage" src="<?php echo $image[0]; ?>" alt="">
                 <p class="desc">Free games</p>
             </div>
             <div class="site-ilustration">
             <img src="<?php echo get_template_directory_uri() ?> /img/ilustration.png" class="logoimage">
             </div>
+</div>
                 <nav class="site-navigation">
+                <div class="mobile-menu">
+                        <a href="#" class="mobile">&#9776;</a>
+                    </div>
                 <?php
                         $args = array(
                             'theme_location' => 'main-menu',

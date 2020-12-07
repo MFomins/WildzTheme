@@ -46,10 +46,18 @@ add_action('wp_enqueue_scripts','wildz_scripts');
 function wildz_menus(){
     register_nav_menus(array(
         'main-menu' => 'Main Menu',
+        'mobile-menu' => 'Mobile Menu',
+
     ));
 }
 add_action('init','wildz_menus');
 
+//Theme Support
+add_theme_support('custom-logo', array(
+	'flex-height' => true,
+	'flex-width'  => true,
+    'header-text' => array( 'site-title', 'site-description' ),
+) );
 
 
 // Image sizes
@@ -148,7 +156,7 @@ function games_shortcode($atts)
 
     $args = array(
         'post_type' => 'games',
-        'posts_per_page' => 4,
+        'posts_per_page' => 5,
         'tax_query' => array(
             array(
                 'taxonomy' => 'category',
@@ -167,9 +175,9 @@ function games_shortcode($atts)
     <div class = "shortcode-title">
         <?php if ($atts['title']) : ?>
             <?php echo $atts['title']; ?>
+            <div class="loadmore" data-category="$atts['category']"> Show All </div>
 
         <?php endif;?>
-            <div class="loadmore"> Show All </div>
         </div>
         
 
@@ -217,12 +225,14 @@ add_action('wp_ajax_nopriv_load_posts_by_ajax', 'load_posts_by_ajax_callback');
 // AJAX view all 
 function more_post_ajax(){
     $offset = $_POST["offset"];
+    
 
      $args = array(
-        'post_type' => 'games',
+         'post_type' => 'games',
+         'category' => '',
          'posts_per_page' => 10,
          'order' => 'DESC',
-         'offset' => 4,
+         'offset' => 5,
      );
 
      $loop = new WP_Query($args);
