@@ -194,7 +194,7 @@ add_shortcode( 'all_games','games_shortcode' );
 
 
 
-// Admin Aja 
+// Admin Ajax
 function blog_scripts() {
     // Register the script
     wp_register_script( 'custom-script', get_stylesheet_directory_uri(). '/src/app.js', array('jquery'), false, true );
@@ -218,14 +218,24 @@ add_action('wp_ajax_nopriv_load_posts_by_ajax', 'load_posts_by_ajax_callback');
 function more_post_ajax(){
     $offset = $_POST["offset"];
 
-
      $args = array(
         'post_type' => 'games',
-         'posts_per_page' => -1,
-         'order' => 'ASC',
+         'posts_per_page' => 10,
+         'order' => 'DESC',
+         'offset' => 4,
      );
 
+     $loop = new WP_Query($args);
 
+     if($loop->have_posts()) {    
+ 
+         while($loop->have_posts()) : $loop->the_post();
+ 
+         get_template_part('template-parts/posts-shortcode');
+ 
+ 
+         endwhile;
+     }
  
    wp_reset_postdata();
 

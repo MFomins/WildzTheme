@@ -1,16 +1,16 @@
-    var posts_per_page = 4;
+    var posts_per_page = -1;
     jQuery(function($) {
-        $('body').on('click', '.loadmore', function() {
+        $('.site-primary').on('click', '.loadmore', function() {
             var data = {
-                'action': 'load_posts_by_ajax',
+                'action': 'more_post_ajax',
                 'posts_per_page': posts_per_page,
                 'security': blog.security
             };
      
             $.post(blog.ajaxurl, data, function(response) {
                 if($.trim(response) != '') {
-                    $('.shortcode-title').append(response);
-                    page++;
+                    $('.loadmore').append(response);
+                    posts_per_page=6;
                 } else {
                     $('.loadmore').hide();
                 }

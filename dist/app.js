@@ -93,9 +93,9 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var posts_per_page = 4;
+var posts_per_page = 6;
 jQuery(function ($) {
-  $('body').on('click', '.loadmore', function () {
+  $('.site-primary').on('click', '.loadmore', function () {
     var data = {
       'action': 'load_posts_by_ajax',
       'posts_per_page': posts_per_page,
@@ -104,7 +104,7 @@ jQuery(function ($) {
     $.post(blog.ajaxurl, data, function (response) {
       if ($.trim(response) != '') {
         $('.shortcode-title').append(response);
-        page++;
+        posts_per_page = -1;
       } else {
         $('.loadmore').hide();
       }
