@@ -175,7 +175,9 @@ function games_shortcode($atts)
     <div class = "shortcode-title">
         <?php if ($atts['title']) : ?>
             <?php echo $atts['title']; ?>
-            <div class="loadmore" data-category="$atts['category']"> Show All </div>
+             <div data-category= " $atts['category'] ">
+                <div class="loadmore"> Show All </div>
+             </div>
 
         <?php endif;?>
         </div>
@@ -225,13 +227,14 @@ add_action('wp_ajax_nopriv_load_posts_by_ajax', 'load_posts_by_ajax_callback');
 // AJAX view all 
 function more_post_ajax(){
     $offset = $_POST["offset"];
-    
+    $categories = get_the_category();
+    $cat = ( !empty( $categories ) ? $categories[0]->term_id : false );
 
      $args = array(
          'post_type' => 'games',
          'category' => '',
          'posts_per_page' => 10,
-         'order' => 'ASC',
+         'order' => 'DESC',
          'offset' => 5,
      );
 

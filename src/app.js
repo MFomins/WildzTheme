@@ -1,5 +1,6 @@
     var posts_per_page = 6;
-    var cat = 'category';
+    var $cat = $( $atts['category'] ).data('category');
+
 
     jQuery(function($) {
         $('.site-primary').on('click', '.loadmore', function() {
@@ -8,12 +9,13 @@
                 'category': cat,
                 'posts_per_page': posts_per_page,
                 'security': blog.security
+                
             };
      
             $.post(blog.ajaxurl, data, function(response) {
                 if($.trim(response) != '') {
                     $('.shortcode-title').append(response);
-                    posts_per_page=10;
+                    posts_per_page=1;
                 } else {
                     $('.loadmore').hide();
                 }

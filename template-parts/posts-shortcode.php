@@ -1,5 +1,4 @@
 
-
 <div class="games-list">
     <div class="games-info">
         <div class="games-content">
