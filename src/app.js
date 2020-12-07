@@ -1,15 +1,12 @@
     var posts_per_page = 6;
-    var $cat = $( $atts['category'] ).data('category');
 
 
     jQuery(function($) {
         $('.site-primary').on('click', '.loadmore', function() {
             var data = {
                 'action': 'more_post_ajax',
-                'category': cat,
                 'posts_per_page': posts_per_page,
-                'security': blog.security
-                
+                'security': blog.security,
             };
      
             $.post(blog.ajaxurl, data, function(response) {
