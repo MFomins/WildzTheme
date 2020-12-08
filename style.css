@@ -40,13 +40,20 @@ body{
     padding: 50px;
     height: 100vh;
 }
+
 .site-logo{
     width: 100%;
-    display:inline-block;
+}
+
+.sitelogo{
+    width: 100%;
+    max-width: 100% !important;
+    max-height: 300px !important;
 }
 
 .logoimage{
     width: 100%;
+    height: auto;
 }
 
 p.desc{
@@ -185,6 +192,8 @@ p.desc{
     height: inherit;
     padding: 30px 5px 20px 10px;
     transition: transform 1s;
+    width: 100%;
+    height: auto;
 
 }
 .games-list{
@@ -207,15 +216,29 @@ p.desc{
 
 
 /** Games IFRAME **/
+@media only screen and (min-width:1000px){
 .gameframe{
+    max-width: 100%;
     background-color: lightblue;
     border: hidden;
+    display: block;
     position: relative;
-    align-content: center;
-    padding:50px 0 0 200px;
+    padding:50px 0 0 11%;
     overflow-x: hidden;
 }
-
+}
+@media only screen and (max-width:1000px){
+.gameframe{
+    height: 80vh;
+    width: 100%;
+    background-color: lightblue;
+    border: hidden;
+    display: block;
+    position: relative;
+    padding:50px 0 0 0px;
+    overflow-x: hidden;
+}
+}
 .game-title{
     padding-left: 200px;
     padding-bottom: 50px;

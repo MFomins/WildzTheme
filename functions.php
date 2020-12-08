@@ -156,7 +156,7 @@ function games_shortcode($atts)
 
     $args = array(
         'post_type' => 'games',
-        'posts_per_page' => 5,
+        'posts_per_page' => -1,
         'tax_query' => array(
             array(
                 'taxonomy' => 'category',
@@ -175,9 +175,7 @@ function games_shortcode($atts)
     <div class = "shortcode-title">
         <?php if ($atts['title']) : ?>
             <?php echo $atts['title']; ?>
-             <div data-category= " $atts['category'] ">
-                <div class="loadmore"> Show All </div>
-             </div>
+            <div class="loadmore" data-category="<?php echo $atts['category'] ;?>"> Show All </div>
 
         <?php endif;?>
         </div>
@@ -224,16 +222,19 @@ add_action( 'wp_enqueue_scripts', 'blog_scripts' );
 add_action('wp_ajax_load_posts_by_ajax', 'load_posts_by_ajax_callback');
 add_action('wp_ajax_nopriv_load_posts_by_ajax', 'load_posts_by_ajax_callback');
 
+// load_posts_by_ajax_callback //
+
+
 // AJAX view all 
 function more_post_ajax(){
     $offset = $_POST["offset"];
-    $categories = get_the_category();
-    $cat = ( !empty( $categories ) ? $categories[0]->term_id : false );
+    $category = $_POST['category'];
+    $ppp = $_REQUEST["ppp"];
+
 
      $args = array(
          'post_type' => 'games',
-         'category' => '',
-         'posts_per_page' => 10,
+         'posts_per_page' => $ppp,
          'order' => 'DESC',
          'offset' => 5,
      );
@@ -255,9 +256,9 @@ function more_post_ajax(){
      die(); // use die instead of exit 
   }
 
-add_action('wp_ajax_nopriv_more_post_ajax', 'more_post_ajax'); 
-add_action('wp_ajax_more_post_ajax', 'more_post_ajax');
 
+  add_action('wp_ajax_nopriv_more_post_ajax', 'more_post_ajax'); 
+  add_action('wp_ajax_more_post_ajax', 'more_post_ajax');
 
 
 ?>

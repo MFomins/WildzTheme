@@ -27,7 +27,7 @@
             $custom_logo_id = get_theme_mod( 'custom_logo' );
             $image = wp_get_attachment_image_src( $custom_logo_id , 'thumbnail' );
          ?>
-            <img class="logoimage" src="<?php echo $image[0]; ?>" alt="">
+            <img class="sitelogo" src="<?php echo $image[0]; ?>" alt="">
                 <p class="desc">Free games</p>
             </div>
             <div class="site-ilustration">

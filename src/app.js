@@ -1,38 +1,61 @@
-    var posts_per_page = 6;
+(function ($) {
+    $(document).ready(function () {
+        ppp = 5;
+        offset = 5;
 
+        $(".loadmore").on("click", function (e) {
+            e.preventDefault();
+            var button = $(this);
+            var loader = $(".loadmore");
+            $.ajax({
+                url: blog.ajax_url,
+                data: {
+                    action: "more_post_ajax", // add your action to the data object
+                    ppp: ppp,
+                    offset: offset,
+                },
 
-    jQuery(function($) {
-        $('.site-primary').on('click', '.loadmore', function() {
-            var data = {
-                'action': 'more_post_ajax',
-                'posts_per_page': posts_per_page,
-                'security': blog.security,
-            };
-     
-            $.post(blog.ajaxurl, data, function(response) {
-                if($.trim(response) != '') {
-                    $('.shortcode-title').append(response);
-                    posts_per_page=1;
-                } else {
-                    $('.loadmore').hide();
+                beforeSend: function () {
+                    button.hide();
+                    loader.show();
+                },
+
+                success: function (data) {
+                    loader.hide();
+                    $('.games-info').append(data);
+
+                    if (data == "") {
+                        button.hide();
+                    } else {
+                        button.show();
+                    }
+                },
+                error: function (data) {
+                    // test to see what you get back on error
+                    console.log(data);
                 }
             });
         });
+    });
+})(jQuery);
 
-            // Mobile menu - show on click
-     $('.mobile-menu a').on('click', function(){
-        $('nav.site-nav').toggle('fast');
+
+jQuery(document).ready(function ($) {
+        // Mobile menu - show on click
+    $('.mobile-menu a').on('click', function(){
+    $('nav.site-nav').toggle('fast');
     });
     // Mobile menu auto hide 
     var breakpoint = 1000;
     $(window).resize(function(){
-        if($(document).width() >= breakpoint) {
-            $('nav.site-nav').show();
-        }else{
-            $('nav.site-nav').hide();
-        }
-    });
+    if($(document).width() >= breakpoint) {
+        $('nav.site-nav').show();
+    }else{
+        $('nav.site-nav').hide();
+    }
+});
+});
 
 
 
-    }); 
+
