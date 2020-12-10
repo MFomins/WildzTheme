@@ -30,8 +30,7 @@
             <img class="sitelogo" src="<?php echo $image[0]; ?>" alt="">
                 <p class="desc">Free games</p>
             </div>
-            <div class="site-ilustration">
-            <img src="<?php echo get_template_directory_uri() ?> /img/ilustration.png" class="logoimage">
+            <div class="site-ilustration container">
             </div>
 </div>
                 <nav class="site-navigation">

@@ -44,8 +44,12 @@ body{
 .site-logo{
     width: 100%;
 }
+.site-logo p{
+    padding-bottom: 50px;
+}
 
 .sitelogo{
+    max-height: none;
     width: 100%;
     max-width: 100% !important;
     max-height: 300px !important;
@@ -54,6 +58,7 @@ body{
 .logoimage{
     width: 100%;
     height: auto;
+
 }
 
 p.desc{
@@ -192,17 +197,22 @@ p.desc{
     height: inherit;
     padding: 30px 5px 20px 10px;
     transition: transform 1s;
-    width: 100%;
     height: auto;
 
 }
+.games-content:hover{
+    transform: translate(0,-20px);
+}
+
 .games-list{
     display: inline-block;
 }
-
-.games-content:hover{
-        transform: translate(0,-20px);
+.games-list:hover{
+    text-decoration: none;
 }
+
+
+
 
 .shortcode-title{
     font-size: 2em;
@@ -250,11 +260,18 @@ h1.title{
 
 .game-link{
     color: black;
+}
+.game-link:hover{
     text-decoration: none;
 
 }
+
 .loadmore{
+    margin-top: 5px;
     display: block;
+    border: none;
+    border-radius: 20%;
+    background-color:white;
 }
 .loadmore:hover{
     color: lightblue;

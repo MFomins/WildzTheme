@@ -1,34 +1,28 @@
 (function ($) {
     $(document).ready(function () {
-        ppp = 5;
-        offset = 5;
 
         $(".loadmore").on("click", function (e) {
             e.preventDefault();
             var button = $(this);
-            var loader = $(".loadmore");
+            var category =$(this).data('category');
+            var wrap = '.' + category + '-wrap';
+
             $.ajax({
                 url: blog.ajax_url,
                 data: {
                     action: "more_post_ajax", // add your action to the data object
-                    ppp: ppp,
-                    offset: offset,
+                    category: category
                 },
+                type: 'POST',
 
                 beforeSend: function () {
                     button.hide();
-                    loader.show();
                 },
 
                 success: function (data) {
-                    loader.hide();
-                    $('.games-info').append(data);
-
-                    if (data == "") {
-                        button.hide();
-                    } else {
-                        button.show();
-                    }
+                    console.log(data);
+                    $(wrap).html(data);
+                    button.hide();
                 },
                 error: function (data) {
                     // test to see what you get back on error

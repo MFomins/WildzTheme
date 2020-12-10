@@ -93,22 +93,51 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-var posts_per_page = 6;
-jQuery(function ($) {
-  $('.site-primary').on('click', '.loadmore', function () {
-    var data = {
-      'action': 'load_posts_by_ajax',
-      'posts_per_page': posts_per_page,
-      'security': blog.security
-    };
-    $.post(blog.ajaxurl, data, function (response) {
-      if ($.trim(response) != '') {
-        $('.shortcode-title').append(response);
-        posts_per_page = -1;
-      } else {
-        $('.loadmore').hide();
-      }
+(function ($) {
+  $(document).ready(function () {
+    $(".loadmore").on("click", function (e) {
+      e.preventDefault();
+      var button = $(this);
+      var category = $(this).data('category');
+      var wrap = '.' + category + '-wrap';
+      $.ajax({
+        url: blog.ajax_url,
+        data: {
+          action: "more_post_ajax",
+          // add your action to the data object
+          category: category
+        },
+        type: 'POST',
+        beforeSend: function beforeSend() {
+          button.hide();
+        },
+        success: function success(data) {
+          console.log(data);
+          $(wrap).html(data);
+          button.hide();
+        },
+        error: function error(data) {
+          // test to see what you get back on error
+          console.log(data);
+        }
+      });
     });
+  });
+})(jQuery);
+
+jQuery(document).ready(function ($) {
+  // Mobile menu - show on click
+  $('.mobile-menu a').on('click', function () {
+    $('nav.site-nav').toggle('fast');
+  }); // Mobile menu auto hide 
+
+  var breakpoint = 1000;
+  $(window).resize(function () {
+    if ($(document).width() >= breakpoint) {
+      $('nav.site-nav').show();
+    } else {
+      $('nav.site-nav').hide();
+    }
   });
 });
 

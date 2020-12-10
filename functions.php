@@ -27,12 +27,6 @@ function wildz_scripts(){
 //  Javascript
     wp_register_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js','jquery', false, true);
 
-    $script_data_array = array(
-        'ajaxurl' => admin_url( 'admin-ajax.php' ),
-        'security' => wp_create_nonce( 'load_more_posts' ),
-    );
-    wp_localize_script( 'custom-script', 'blog', $script_data_array );
-
 //  Enqueue
 wp_enqueue_script('bootstrap');
 wp_enqueue_script('jquery');
@@ -41,6 +35,27 @@ wp_enqueue_script('script');
 
 }
 add_action('wp_enqueue_scripts','wildz_scripts');
+
+// Admin Ajax
+function blog_scripts() {
+    // Register the script
+    wp_register_script( 'custom-script', get_stylesheet_directory_uri(). '/src/app.js', array('jquery'), false, true );
+ 
+    // Localize the script with new data
+    $script_data_array = array(
+        'ajax_url' => admin_url( 'admin-ajax.php' ),
+        'security' => wp_create_nonce( 'load_more_posts' ),
+    );
+    wp_localize_script( 'custom-script', 'blog', $script_data_array );
+ 
+    // Enqueued script with localized data.
+    wp_enqueue_script( 'custom-script' );
+}
+add_action( 'wp_enqueue_scripts', 'blog_scripts' );
+
+add_action('wp_ajax_load_posts_by_ajax', 'load_posts_by_ajax_callback');
+add_action('wp_ajax_nopriv_load_posts_by_ajax', 'load_posts_by_ajax_callback');
+
 
 //  Menu
 function wildz_menus(){
@@ -156,7 +171,8 @@ function games_shortcode($atts)
 
     $args = array(
         'post_type' => 'games',
-        'posts_per_page' => -1,
+        'posts_per_page' => 5,
+        'order'     => 'ASC',
         'tax_query' => array(
             array(
                 'taxonomy' => 'category',
@@ -175,12 +191,11 @@ function games_shortcode($atts)
     <div class = "shortcode-title">
         <?php if ($atts['title']) : ?>
             <?php echo $atts['title']; ?>
-            <div class="loadmore" data-category="<?php echo $atts['category'] ;?>"> Show All </div>
-
+            <button class="loadmore" data-category="<?php echo $atts['category'] ;?>"> Show All </button>
         <?php endif;?>
         </div>
         
-
+            <div class ='games-wrap <?php echo $atts['category']; ?>-wrap'>
 
     <?php
 
@@ -194,6 +209,10 @@ function games_shortcode($atts)
         endwhile;
     }
 
+    ?>
+    </div>
+<?php
+
     return ob_get_clean();
 }
 add_shortcode( 'all_games','games_shortcode' );
@@ -202,41 +221,25 @@ add_shortcode( 'all_games','games_shortcode' );
 
 
 
-// Admin Ajax
-function blog_scripts() {
-    // Register the script
-    wp_register_script( 'custom-script', get_stylesheet_directory_uri(). '/src/app.js', array('jquery'), false, true );
- 
-    // Localize the script with new data
-    $script_data_array = array(
-        'ajaxurl' => admin_url( 'admin-ajax.php' ),
-        'security' => wp_create_nonce( 'load_more_posts' ),
-    );
-    wp_localize_script( 'custom-script', 'blog', $script_data_array );
- 
-    // Enqueued script with localized data.
-    wp_enqueue_script( 'custom-script' );
-}
-add_action( 'wp_enqueue_scripts', 'blog_scripts' );
-
-add_action('wp_ajax_load_posts_by_ajax', 'load_posts_by_ajax_callback');
-add_action('wp_ajax_nopriv_load_posts_by_ajax', 'load_posts_by_ajax_callback');
-
-// load_posts_by_ajax_callback //
-
-
 // AJAX view all 
-function more_post_ajax(){
-    $offset = $_POST["offset"];
+function more_post_ajax()
+{
+
     $category = $_POST['category'];
-    $ppp = $_REQUEST["ppp"];
 
 
      $args = array(
          'post_type' => 'games',
-         'posts_per_page' => $ppp,
-         'order' => 'DESC',
-         'offset' => 5,
+         'posts_per_page' => -1,
+         'order'     => 'ASC',
+         'tax_query' => array(
+             array(
+                 'taxonomy' => 'category',
+                 'field'    => 'slug',
+                 'terms'    => $category,
+                 'operator' => 'IN'
+             )
+        ),
      );
 
      $loop = new WP_Query($args);
