@@ -21,6 +21,7 @@ body{
 
 /**-----------------------------------------------------------**/
 /** Header **/
+
 #header{
     position: fixed;
     left: 0px;
@@ -32,6 +33,7 @@ body{
     display: inline-block;
     color: white;
 }
+@media only screen and (min-width:1000px){
 
 .site-header-inner{
     position: relative;
@@ -40,6 +42,8 @@ body{
     padding: 50px;
     height: 100vh;
 }
+}
+
 
 .site-logo{
     width: 100%;
@@ -58,8 +62,9 @@ body{
 .logoimage{
     width: 100%;
     height: auto;
-
 }
+
+
 
 p.desc{
     position: relative;
@@ -68,6 +73,7 @@ p.desc{
 }
 
 /** Main Menu **/
+
 .site-navigation{
     border-top: 1px solid white;
     margin: 25px 0;
@@ -90,7 +96,7 @@ p.desc{
     font-weight: 700;
     color:white;
     text-decoration: none;
-    font-size: calc(10px + 6 * ((100vw - 320px) / 680));
+    font-size: calc(10px + 5 * ((100vw - 520px) / 1000));
 
 }
 .site-nav ul li a:hover{
@@ -107,17 +113,19 @@ p.desc{
 }
 
 /** Mobile view **/
-@media only screen and (max-width:1000px){
-   
+@media only screen and (max-width:1001px){
+    .site-header-top{
+        display: none;
+        }
+    }
+    @media only screen and (max-width:1000px){
     #header{
         display: block;
         position: relative;
         width: 100%;
         height: 10%;
     }
-    .site-header-top{
-    display: none;
-    }
+    
     .site-header-inner{
         height: 10%;
         padding: 5px;
@@ -136,16 +144,16 @@ p.desc{
         border-top: none;
         border-bottom: none;
     }
-
+ 
 }
 
-@media only screen and (min-width:1000px){
+@media only screen and (min-width:1001px){
 
     .mobile-menu a{
         display: none;
     
     }
-
+  
 }
 
 
@@ -159,8 +167,7 @@ p.desc{
 
 /**-----------------------------------------------------------**/
 /** Body **/
-@media only screen and (min-width:1000px){
-
+@media only screen and (min-width:1001px){
 #content{
     position: relative;
     width: 100%;

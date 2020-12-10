@@ -84,7 +84,7 @@ if ( function_exists( 'add_image_size' ) ) {
 	add_image_size( 'small-img', 150, 150, true ); //(cropped)
 	add_image_size( 'medium-img', 300, 300, false ); //(scaled)
 	add_image_size( 'big-img', 500, 500, true ); //(cropped)
-	add_image_size( 'verbig-img', 720, 720, true ); //(cropped)
+	add_image_size( 'extra-img', 720, 720, true ); //(cropped)
 }
 
 //  Custom Post Type

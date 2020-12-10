@@ -33,11 +33,12 @@
             <div class="site-ilustration container">
             </div>
 </div>
-                <nav class="site-navigation">
+                <div class="site-navigation">
+
                 <div class="mobile-menu">
-                        <a href="#" class="mobile">&#9776;</a>
-                    </div>
-                <?php
+                    <a href="#" class="mobile">&#9776</a>
+                </div>
+                        <?php
                         $args = array(
                             'theme_location' => 'main-menu',
                             'container'      => 'nav',
@@ -47,7 +48,7 @@
                         wp_nav_menu($args);
                         ?>
 
-                </nav>
+                    </div>
 
 
     </div>
