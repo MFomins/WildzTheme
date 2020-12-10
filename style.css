@@ -33,8 +33,7 @@ body{
     display: inline-block;
     color: white;
 }
-@media only screen and (min-width:1000px){
-
+@media only screen and (min-width:1020px){
 .site-header-inner{
     position: relative;
     display: block;
@@ -113,12 +112,12 @@ p.desc{
 }
 
 /** Mobile view **/
-@media only screen and (max-width:1001px){
+@media only screen and (max-width:1020px){
     .site-header-top{
         display: none;
         }
     }
-    @media only screen and (max-width:1000px){
+    @media only screen and (max-width:1020px){
     #header{
         display: block;
         position: relative;
@@ -147,7 +146,7 @@ p.desc{
  
 }
 
-@media only screen and (min-width:1001px){
+@media only screen and (min-width:1021px){
 
     .mobile-menu a{
         display: none;
@@ -167,7 +166,7 @@ p.desc{
 
 /**-----------------------------------------------------------**/
 /** Body **/
-@media only screen and (min-width:1001px){
+@media only screen and (min-width:1021px){
 #content{
     position: relative;
     width: 100%;
@@ -233,7 +232,7 @@ p.desc{
 
 
 /** Games IFRAME **/
-@media only screen and (min-width:1000px){
+@media only screen and (min-width:1021px){
 .gameframe{
     max-width: 100%;
     background-color: lightblue;
@@ -244,7 +243,7 @@ p.desc{
     overflow-x: hidden;
 }
 }
-@media only screen and (max-width:1000px){
+@media only screen and (max-width:1021px){
 .gameframe{
     height: 80vh;
     width: 100%;
@@ -295,7 +294,7 @@ h1.title{
 
 /**-----------------------------------------------------------**/
 /** Footer **/
-@media only screen and (min-width:1000px){
+@media only screen and (min-width:1021px){
     .footer{
         width: 100%;
         padding-left: 15%;

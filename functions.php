@@ -264,4 +264,12 @@ function more_post_ajax()
   add_action('wp_ajax_more_post_ajax', 'more_post_ajax');
 
 
+  //Include ACF fields for theme
+require_once WILDZ_TEMPLATE_DIR . '/includes/wildz-acf-fields.php';
+
+//Include ACF setup files
+require_once WILDZ_TEMPLATE_DIR . '/includes/wildz-acf-setup.php';
+
+
+
 ?>
