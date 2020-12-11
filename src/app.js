@@ -15,14 +15,10 @@
                 },
                 type: 'POST',
 
-                beforeSend: function () {
-                    button.hide();
-                },
 
                 success: function (data) {
                     console.log(data);
                     $(wrap).html(data);
-                    button.hide();
                 },
                 error: function (data) {
                     // test to see what you get back on error
@@ -36,16 +32,16 @@
 
 jQuery(document).ready(function ($) {
         // Mobile menu - show on click
-    $('.mobile-menu a').on('click', function(){
-    $('nav.site-nav').toggle('fast');
+    $('.nav-toggle').on('click', function(){
+    $('nav.mobile-nav').toggle('opened');
     });
     // Mobile menu auto hide 
-    var breakpoint = 1000;
+    var breakpoint = 1020;
     $(window).resize(function(){
     if($(document).width() >= breakpoint) {
-        $('nav.site-nav').show();
+        $('nav.mobile-nav').show();
     }else{
-        $('nav.site-nav').hide();
+        $('nav.mobile-nav').hide();
     }
 });
 });

@@ -191,7 +191,7 @@ function games_shortcode($atts)
     <div class = "shortcode-title">
         <?php if ($atts['title']) : ?>
             <?php echo $atts['title']; ?>
-            <button class="loadmore" data-category="<?php echo $atts['category'] ;?>"> Show All </button>
+            <button class="loadmore" data-category="<?php echo $atts['category'] ;?>"> Show all ➤ </button>
         <?php endif;?>
         </div>
         

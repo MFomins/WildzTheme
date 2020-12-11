@@ -30,13 +30,25 @@
                 <img class="sitelogo" src="<?php echo $image[0]; ?>" alt="">
                     <p class="desc">Free games</p>
                 </div>
+              
         
     </div>
                 <div class="site-navigation">
 
-                    <div class="mobile-menu">
-                        <a href="#" class="mobile">&#9776</a>
-                    </div>
+                        <button class="nav-toggle">
+                            <span class="bar-top"></span>
+                            <span class="bar-mid"></span>
+                            <span class="bar-bot"></span>
+                        </button>
+                                
+                
+
+                        <?php 
+                            $custom_logo_id = get_theme_mod( 'custom_logo' );
+                            $image = wp_get_attachment_image_src( $custom_logo_id , 'thumbnail' );
+                        ?>  
+                        <img class="mobile-sitelogo" src="<?php echo $image[0]; ?>" alt="">
+                        <div class ="mobile-menuheader">
                         <?php
                         $args = array(
                             'theme_location' => 'main-menu',
@@ -46,8 +58,22 @@
                     
                         wp_nav_menu($args);
                         ?>
-
+                        </div>
+                 
+                    </div>
+                    <div class="mobile-menu">
+                     <?php
+                        $args = array(
+                            'theme_location' => 'mobile-menu',
+                            'container'      => 'nav',
+                            'container_class'=> 'mobile-nav'
+                        );
+                    
+                        wp_nav_menu($args);
+                        ?>
+                  
                 </div>
+            
 
     </div>
 </header>

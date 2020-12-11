@@ -108,13 +108,9 @@
           category: category
         },
         type: 'POST',
-        beforeSend: function beforeSend() {
-          button.hide();
-        },
         success: function success(data) {
           console.log(data);
           $(wrap).html(data);
-          button.hide();
         },
         error: function error(data) {
           // test to see what you get back on error
@@ -125,21 +121,6 @@
   });
 })(jQuery);
 
-jQuery(document).ready(function ($) {
-  // Mobile menu - show on click
-  $('.mobile-menu a').on('click', function () {
-    $('nav.site-nav').toggle('fast');
-  }); // Mobile menu auto hide 
-
-  var breakpoint = 1000;
-  $(window).resize(function () {
-    if ($(document).width() >= breakpoint) {
-      $('nav.site-nav').show();
-    } else {
-      $('nav.site-nav').hide();
-    }
-  });
-});
 
 /***/ }),
 
