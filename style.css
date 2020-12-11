@@ -103,14 +103,14 @@ p.desc{
 
 }
 .site-nav ul li a:hover{
-    color: #8EE4AF;
+    color: #379683;
 }
 
 .site-nav ul li.current-menu-item a{
-    color:#379683;
+    color:#8EE4AF;
 }
 .site-nav ul li.current-menu-item a:hover{
-    color:#379683;
+    color:#8EE4AF;
     text-decoration: none;
 
 }
@@ -193,7 +193,7 @@ p.desc{
   }
   
   .nav-toggle [class*='bar-'] {
-    background: #E8AD1A;
+    background: #EDF5E1;
     display: block;
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg);
@@ -244,7 +244,7 @@ p.desc{
 }
 
 .mobile-nav a:hover{
-    color: #8EE4AF;
+    color: #379683;
     text-decoration: none;
 }
 
@@ -253,10 +253,10 @@ p.desc{
 }
 
 .mobile-nav ul li.current-menu-item a{
-    color:#379683;
+    color:#8EE4AF;
 }
 .mobile-nav ul li.current-menu-item a:hover{
-    color:#379683;
+    color:#8EE4AF;
     text-decoration: none;
 }
 
@@ -308,14 +308,14 @@ p.desc{
 .games-content{
     display: inline-block;
     height: inherit;
-    padding: 20px 10px 20px 10px;
+    padding: 20px 5px 20px 20px;
     transition: transform 1s;
 }
 .games-content img{
-    display: flex;
-    flex: auto;
+    width:290px;
     max-width: 300px;
-    max-height: auto;
+    height:290px;
+   object-fit:contain;
 }
 
 .games-content a:hover{
@@ -356,9 +356,23 @@ p.desc{
     border: hidden;
     display: block;
     position: relative;
-    padding:50px 0 0 11%;
+    padding:0 0 0 11%;
     overflow-x: hidden;
 
+}
+.exit-button{
+    display: inline-block;
+    position: relative;
+    padding-top: 50px;
+    padding-left: 200px;
+   
+   
+}
+.exit-button a{
+height: auto;
+width: 100px;
+color: black;
+z-index: 10002;
 }
 }
 @media only screen and (max-width:1021px){
@@ -378,6 +392,7 @@ p.desc{
     padding-bottom: 50px;
 }
 h1.title{
+    font-weight: 700;
     font-size: 2em;
     color:rgb(37, 34, 12);
 }
@@ -446,8 +461,12 @@ h1.title{
 
 
 p.copyright{
-    color: white;
+    color: #edf5e179;
     text-align: center;
+}
+
+.copyright a{
+    color: red;
 }
 
 .agelimit ul{
@@ -456,7 +475,7 @@ p.copyright{
     padding: 0;
 }
 .agelimit ul li{
-    color:white;
+    color:#edf5e179;
     border: 6px solid red;
     width: 100px;
     height: 100px;

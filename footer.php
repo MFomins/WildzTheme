@@ -21,7 +21,7 @@
         <p class="copyright"> Play responsibly</p>
 
         <p class="copyright"> For help with problem gambling, please visit
-            <a href ="">Gambling Therapy</a>
+            <a href ="https://www.gamblingtherapy.org/">Gambling Therapy</a>
         </p>
         </div>
 

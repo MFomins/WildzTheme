@@ -7,8 +7,13 @@
 
 <?php if (have_posts()) : while (have_posts()) : the_post();?>
 
-
+ 
 <div class ="gameframe">
+<div class= "exit-button">
+        <a href ="<?php echo get_home_url(); ?>">
+               &#10683;
+            </a>
+    </div>
 <?php the_content();?>
 
 <div class="game-title">
