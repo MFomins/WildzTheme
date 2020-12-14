@@ -372,14 +372,14 @@ p.desc{
     display: block;
     position: relative;
     overflow-x: hidden;
-    padding-left: 5%;
+    padding-left: 7%;
     width: 100%;
 
 }
 .exit-button{
     display: inline-block;
     position: relative;
-    padding-left: 5%;
+    padding-left: 7%;
     padding-bottom: 3px;
  
 }
@@ -413,7 +413,7 @@ p.desc{
 }
 }
 .game-title{
-    padding-left: 11%;
+    padding-left: 7%;
     padding-bottom: 50px;
 }
 h1.title{
