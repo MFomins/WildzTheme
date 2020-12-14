@@ -317,6 +317,14 @@ p.desc{
     height:290px;
    object-fit:contain;
 }
+@media only screen and (max-width:651px){
+    .games-content img{
+        width:200px;
+        max-width: 200px;
+        height:200px;
+       object-fit:contain;
+    }
+}
 
 .games-content a:hover{
     text-decoration: none;
@@ -350,29 +358,35 @@ p.desc{
 
 /** Games IFRAME **/
 @media only screen and (min-width:1021px){
+    .content-area{
+        background-image: linear-gradient(to right, #379683, #8EE4AF);
+        display: block;
+        height: auto;
+        width: 100%;
+        min-height: 80vh;
+        position: relative;
+        padding: 30px 5% 30px 10%;
+    }
 .gameframe{
-    max-width: 100%;
-    background-image: linear-gradient(to right, #379683, #8EE4AF);
     border: hidden;
     display: block;
     position: relative;
-    padding:0 0 0 11%;
     overflow-x: hidden;
+    padding-left: 5%;
+    width: 100%;
 
 }
 .exit-button{
     display: inline-block;
     position: relative;
-    padding-top: 50px;
-    padding-left: 200px;
-   
-   
+    padding-left: 5%;
+    padding-bottom: 3px;
+ 
 }
-.exit-button a{
-height: auto;
-width: 100px;
-color: black;
-z-index: 10002;
+.exit-button a img{
+    height: auto;
+    max-width: 32px;
+    z-index: 10002;
 }
 }
 @media only screen and (max-width:1021px){
@@ -383,18 +397,29 @@ z-index: 10002;
     border: hidden;
     display: block;
     position: relative;
-    margin:50px 0 0 0px;
     overflow-x: hidden;
+}
+.exit-button{
+    display: inline-block;
+    position: relative;
+    padding: 50px 0 2px 0;
+ 
+}
+.exit-button a img{
+    height: auto;
+    max-width: 32px;
+    color: black;
+    z-index: 10002;
 }
 }
 .game-title{
-    padding-left: 200px;
+    padding-left: 11%;
     padding-bottom: 50px;
 }
 h1.title{
     font-weight: 700;
     font-size: 2em;
-    color:rgb(37, 34, 12);
+    color:#EDF5E1;
 }
 
 .game-link{
@@ -475,7 +500,7 @@ p.copyright{
     padding: 0;
 }
 .agelimit ul li{
-    color:#edf5e179;
+    color:white;
     border: 6px solid red;
     width: 100px;
     height: 100px;
